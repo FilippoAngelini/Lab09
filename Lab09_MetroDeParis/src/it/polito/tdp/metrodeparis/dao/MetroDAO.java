@@ -60,7 +60,7 @@ public class MetroDAO {
 				Fermata f1 = new Fermata(rs.getInt("id1"), rs.getString("nome1"), coords1);
 				Fermata f2 = new Fermata(rs.getInt("id2"), rs.getString("nome2"), coords2);
 				
-				int velocita = rs.getInt("velocita");
+				double velocita = rs.getDouble("velocita");
 				
 				double distanza = LatLngTool.distance(coords1, coords2, LengthUnit.KILOMETER);
 				
