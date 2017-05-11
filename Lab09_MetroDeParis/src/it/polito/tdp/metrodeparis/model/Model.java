@@ -17,24 +17,24 @@ import it.polito.tdp.metrodeparis.dao.MetroDAO;
 
 public class Model {
 	
-	//WeightedGraph<Fermata,DefaultWeightedEdge> graph;
-	WeightedGraph<FermataEnhanced,DefaultWeightedEdge> graph;
+	WeightedGraph<Fermata,DefaultWeightedEdge> graph;
+	//WeightedGraph<FermataEnhanced,DefaultWeightedEdge> graph;
 	MetroDAO dao;
-	//Map<Fermata,Fermata> map;
-	Map<FermataEnhanced,FermataEnhanced> map;
+	Map<Fermata,Fermata> map;
+	//Map<FermataEnhanced,FermataEnhanced> map;
 	
 	public Model(){
 		dao = new MetroDAO();
 		graph = this.getGrafo();
-		//map = new HashMap <Fermata,Fermata>();
-		map = new HashMap <FermataEnhanced,FermataEnhanced>();
+		map = new HashMap <Fermata,Fermata>();
+		//map = new HashMap <FermataEnhanced,FermataEnhanced>();
 	}
-/*
+
 	private WeightedGraph<Fermata, DefaultWeightedEdge> getGrafo() {
 		
 		if(graph==null)
-			//this.creaGrafo();
-			this.creaGrafoEnhanced();
+			this.creaGrafo();
+			//this.creaGrafoEnhanced();
 		
 		return graph;
 	}
@@ -59,6 +59,8 @@ public class Model {
 		
 		DijkstraShortestPath<Fermata,DefaultWeightedEdge> path = new DijkstraShortestPath<Fermata,DefaultWeightedEdge>(graph,partenza,arrivo);
 		
+		map = new HashMap <Fermata,Fermata>();
+		
 		map.put(partenza, null);
 
 		List<Fermata> ris = new ArrayList<Fermata>();
@@ -67,7 +69,9 @@ public class Model {
 		
 		for(DefaultWeightedEdge e : path.getPathEdgeList()){
 			this.edgeTraversed(e);
-			tempoTot += graph.getEdgeWeight(e)*3600 + 30;
+			tempoTot += graph.getEdgeWeight(e)*3600;
+			if(!graph.getEdgeTarget(e).equals(arrivo) && !graph.getEdgeSource(e).equals(arrivo))
+				tempoTot += 30;
 		}
 		
 		while(arrivo!=null ) {
@@ -77,7 +81,7 @@ public class Model {
 		
 		Collections.reverse(ris);
 		
-		int totalSecs = (int)(tempoTot-30);
+		int totalSecs = (int)(tempoTot);
 		
 		int hours = totalSecs / 3600;
 		int minutes = (totalSecs % 3600) / 60;
@@ -104,7 +108,7 @@ public class Model {
 			map.put(f2,  f1) ;
 		}
 	}
-*/
+/*
 	private WeightedGraph<FermataEnhanced, DefaultWeightedEdge> getGrafo() {
 		
 		if(graph==null)
@@ -178,6 +182,6 @@ public class Model {
 			// c2 è quello nuovo
 			map.put(f2,  f1) ;
 		}
-	}
+	}*/
 
 }

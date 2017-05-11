@@ -42,7 +42,7 @@ public class MetroDAO {
 
 		return fermate;
 	}
-	/*
+	
 	public List<Connessione> listConnessioni() {
 		
 		final String sql = "SELECT id_connessione, fermata1.id_fermata as id1, fermata1.nome as nome1, fermata1.coordX as x1, fermata1.coordy as y1, fermata2.id_fermata as id2, fermata2.nome as nome2, fermata2.coordX as x2, fermata2.coordy as y2, velocita FROM fermata as fermata1, fermata as fermata2, connessione, linea WHERE connessione.id_stazP=fermata1.id_fermata AND connessione.id_stazA=fermata2.id_fermata AND connessione.id_linea=linea.id_linea";
@@ -82,8 +82,8 @@ public class MetroDAO {
 		}
 
 		return connessioni;
-	}*/
-	
+	}
+	/*
 	public List<FermataEnhanced> getAllFermateEnhanced() {
 
 		final String sql = "SELECT DISTINCT id_fermata, nome, coordx, coordy, id_linea FROM connessione, fermata WHERE connessione.id_stazP=fermata.id_fermata ORDER BY nome ASC";
@@ -149,6 +149,6 @@ public class MetroDAO {
 		}
 
 		return connessioni;
-	}
+	}*/
 
 }

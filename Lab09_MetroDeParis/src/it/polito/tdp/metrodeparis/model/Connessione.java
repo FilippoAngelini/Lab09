@@ -2,23 +2,23 @@ package it.polito.tdp.metrodeparis.model;
 
 public class Connessione {
 	
-	private FermataEnhanced fermata1;
-	private FermataEnhanced fermata2;
+	private Fermata fermata1;
+	private Fermata fermata2;
 	private double peso;
 	private int idConnessione;
 	
-	public Connessione(int idConnessione, FermataEnhanced fermata1, FermataEnhanced fermata2, double peso) {
+	public Connessione(int idConnessione, Fermata fermata1, Fermata fermata2, double peso) {
 		this.fermata1 = fermata1;
 		this.fermata2 = fermata2;
 		this.peso = peso;
 		this.idConnessione = idConnessione;
 	}
 
-	public FermataEnhanced getFermata1() {
+	public Fermata getFermata1() {
 		return fermata1;
 	}
 
-	public FermataEnhanced getFermata2() {
+	public Fermata getFermata2() {
 		return fermata2;
 	}
 

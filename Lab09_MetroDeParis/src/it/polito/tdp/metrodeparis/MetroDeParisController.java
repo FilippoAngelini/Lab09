@@ -27,10 +27,10 @@ public class MetroDeParisController {
     private URL location;
 
     @FXML // fx:id="cmbPartenza"
-    private ComboBox<FermataEnhanced> cmbPartenza; // Value injected by FXMLLoader
+    private ComboBox<Fermata> cmbPartenza; // Value injected by FXMLLoader
 
     @FXML // fx:id="cmbArrivo"
-    private ComboBox<FermataEnhanced> cmbArrivo; // Value injected by FXMLLoader
+    private ComboBox<Fermata> cmbArrivo; // Value injected by FXMLLoader
 
     @FXML // fx:id="txtResult"
     private TextArea txtResult; // Value injected by FXMLLoader
@@ -45,17 +45,17 @@ public class MetroDeParisController {
     
     public void setModel(Model model){
     	this.model=model;
-    	//cmbPartenza.getItems().addAll(dao.getAllFermate());
-    	//cmbArrivo.getItems().addAll(dao.getAllFermate());
-    	cmbPartenza.getItems().addAll(dao.getAllFermateEnhanced());
-    	cmbArrivo.getItems().addAll(dao.getAllFermateEnhanced());
+    	cmbPartenza.getItems().addAll(dao.getAllFermate());
+    	cmbArrivo.getItems().addAll(dao.getAllFermate());
+    	//cmbPartenza.getItems().addAll(dao.getAllFermateEnhanced());
+    	//cmbArrivo.getItems().addAll(dao.getAllFermateEnhanced());
     }
 
     @FXML
     void doCalcolaPercorso(ActionEvent event) {
     	
-    	FermataEnhanced partenza = cmbPartenza.getValue() ;
-    	FermataEnhanced arrivo = cmbArrivo.getValue() ;
+    	Fermata partenza = cmbPartenza.getValue() ;
+    	Fermata arrivo = cmbArrivo.getValue() ;
     	
     	if(partenza==null || arrivo==null) {
     		txtResult.appendText("Errore: devi selezionare le fermate di partenza e arrivo!\n") ;
